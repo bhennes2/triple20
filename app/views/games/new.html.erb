@@ -1,0 +1,10 @@
+<h1>Create a new game</h1>
+
+<%= form_for(@game) do |f| %>
+	<%= f.label 'Player 1 Name: ' %>
+	<%= f.text_field :player1 %><br />
+	<%= f.label 'Player 2 Name: ' %>
+	<%= f.text_field :player2 %><br />
+	<%= f.submit %>
+	
+<% end %>

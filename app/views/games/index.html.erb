@@ -1,0 +1,19 @@
+<h1>Trips 20</h1>
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Darts_in_a_dartboard.jpg/283px-Darts_in_a_dartboard.jpg" />
+<br />
+
+<%= link_to "New Game", new_game_url %><br />
+
+<% if !@games.empty? %>
+	<p>Recent Results</p>
+	<ul>
+		<% @games.each do |game| %>
+			<li>Game #<%= game.id %>: <%= game.player1 %> v. <%= game.player2 %> 
+				| <%= link_to 'Results', game_url(game.id)%>
+				| <%= link_to 'Delete', game_url(game.id), :method => :delete, :confirm => 'Are you sure?' %>
+				| <%= link_to 'Edit players', edit_game_url(game.id) %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
