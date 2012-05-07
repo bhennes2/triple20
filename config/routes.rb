@@ -14,4 +14,6 @@ Triple20App::Application.routes.draw do
   
   get '/live/:id', :controller => 'games', :action => 'live', :as => 'live_game'
   
+  post '/winner' => 'games#winner', :as => :set_winner
+  
 end

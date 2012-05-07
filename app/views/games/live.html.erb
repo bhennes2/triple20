@@ -87,6 +87,7 @@
 				else {
 					alert("Game over! Player 2 wins!");
 				}
+				$.post("/winner", { p1score: $("#player1_score").html(), p2score: $("#player2_score").html(), id: <%= @game.id %> }, null, 'script');
 			}
 		});						
 	});

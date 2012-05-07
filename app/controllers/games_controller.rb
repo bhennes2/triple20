@@ -47,4 +47,24 @@ class GamesController < ApplicationController
     @game = Game.find_by_id(params[:id])
   end
   
+  def winner
+    @game = Game.find_by_id(params[:id])
+    
+    @game.player1_score = params[:p1score]
+    @game.player2_score = params[:p2score]
+    
+    if params[:p1score] > params[:p2score]
+      @game.winner = 1
+    else
+      @game.winner = 2
+    end
+    
+    @game.save
+    
+    respond_to do |format|
+      format.js
+    end
+
+  end
+  
 end
